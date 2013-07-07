@@ -1,0 +1,34 @@
+
+= simple_form_for @hotel, url: {action: "create"}, :html => { class: "form-horizontal well", :multipart => true} do |f|
+  %div{:class => "control-group" }
+    =f.input :title, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input :address_country, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input :address_city, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input  :address_state, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input  :address_street, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input :breakfast, class: "controls" , label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input :photo_hotel, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input  :price_for_room, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input :rating, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.input  :room_desc, class: "controls", label_html: { class: 'control-label' }
+
+  %div{:class => "control-group" }
+    =f.button :submit, class: "btn btn-primary controls"
