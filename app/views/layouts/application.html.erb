@@ -62,9 +62,20 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Home", "/"  %></li>
+              <li><%= link_to "Add New Hotel", new_hotel_path   %></li>
+
+              <% if user_signed_in? %>
+                  You login as <%= current_user.email %>
+                  <li>
+                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                  </li>
+              <% else %>
+                  <li>
+                    <%= link_to('Sign in', new_user_session_path) %>
+                  </li>
+              <% end %>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
