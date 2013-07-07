@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705150308) do
+ActiveRecord::Schema.define(:version => 20130706182529) do
+
+  create_table "hotels", :force => true do |t|
+    t.string   "title"
+    t.text     "room_desc"
+    t.float    "price_for_room"
+    t.integer  "rating"
+    t.boolean  "breakfast"
+    t.string   "address_country"
+    t.string   "address_state"
+    t.string   "address_city"
+    t.string   "address_street"
+    t.string   "photo_hotel"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
