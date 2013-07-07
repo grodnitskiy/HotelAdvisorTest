@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'haml-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
