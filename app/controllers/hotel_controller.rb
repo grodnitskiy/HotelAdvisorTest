@@ -10,7 +10,7 @@ class HotelController < ApplicationController
   def create
     @hotel = Hotel.new(params[:hotel])
     if @hotel.save
-      flash[:notice] = "Successfully created Hotel."
+      flash[:notice] = "Successfully created new Hotel."
       redirect_to @hotel
     else
       render :action => 'new'
@@ -23,23 +23,23 @@ class HotelController < ApplicationController
 
 
   def edit
-    @painting = Painting.find(params[:id])
+    @hotel = Hotel.find(params[:id])
   end
 
   def update
-    @painting = Painting.find(params[:id])
-    if @painting.update_attributes(params[:painting])
-      flash[:notice] = "Successfully updated painting."
-      redirect_to @painting.gallery
+    @hotel = Hotel.find(params[:id])
+    if @hotel.update_attributes(params[:painting])       #TODO: rewrite
+      flash[:notice] = "Successfully updated Hotel."
+      redirect_to @hotel
     else
       render :action => 'edit'
     end
   end
 
   def destroy
-    @painting = Painting.find(params[:id])
-    @painting.destroy
-    flash[:notice] = "Successfully destroyed painting."
-    redirect_to @painting.gallery
+    @hotel = Hotel.find(params[:id])
+    @hotel.destroy
+    flash[:notice] = "Successfully destroyed Hotel."
+    redirect_to @hotel
   end
 end
