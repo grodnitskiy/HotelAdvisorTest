@@ -1,5 +1,8 @@
 HotelAdvisor::Application.routes.draw do
 
+  resources :messages
+
+
   devise_for :users
 
  # get "home/index"
