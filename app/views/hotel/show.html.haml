@@ -1,4 +1,42 @@
 
 %div{:class => "well"}
- %h1= @hotel.title
- =image_tag @hotel.photo_hotel if @hotel.photo_hotel?
+  =image_tag(@hotel.photo_hotel, width:'265', height:'265', align:'right') if @hotel.photo_hotel?
+  %h1= @hotel.title
+
+  %p
+    %b Rating:
+    =@hotel.rating
+
+  %p
+    %b Price for room:
+    =@hotel.price_for_room
+    $
+
+  %p
+    %b Breakfast Included?:
+    =@hotel.breakfast
+
+  %p
+    %b Address:
+    =@hotel.address_country
+    ,
+    =@hotel.address_state
+    ,
+    =@hotel.address_city
+    ,
+    =@hotel.address_street
+    ,
+
+  %p
+    %b Room Description:
+    =@hotel.room_desc
+
+=if @comments.any?
+  %div{:class => "well"}
+    %p
+      %b Comments:
+      = render @comments
+
+%div
+  %p
+    = link_to 'Add New Comment', new_comment_path(@hotel)

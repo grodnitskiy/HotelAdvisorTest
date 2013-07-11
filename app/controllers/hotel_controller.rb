@@ -1,6 +1,7 @@
 class HotelController < ApplicationController
   def show
     @hotel = Hotel.find(params[:id])
+    @comments = @hotel.comments
   end
 
   def show_new
@@ -8,7 +9,7 @@ class HotelController < ApplicationController
   end
 
   def show_most_rated
-      @hotels = Hotel.
+    @hotels = Hotel
   end
 
   def index
@@ -50,4 +51,5 @@ class HotelController < ApplicationController
     flash[:notice] = "Successfully destroyed Hotel."
     redirect_to @hotel
   end
+
 end

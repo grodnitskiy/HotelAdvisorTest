@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710150200) do
+ActiveRecord::Schema.define(:version => 20130711041457) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "hotel_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "hotels", :force => true do |t|
     t.string   "title"
@@ -26,15 +34,7 @@ ActiveRecord::Schema.define(:version => 20130710150200) do
     t.string   "photo_hotel"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "usercount"
-  end
-
-  create_table "messages", :force => true do |t|
-    t.text     "content"
-    t.integer  "hotel_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "userRateCount"
   end
 
   create_table "users", :force => true do |t|

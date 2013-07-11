@@ -1,7 +1,7 @@
 HotelAdvisor::Application.routes.draw do
 
-  resources :messages
-
+  get 'comments/new/:id', to: 'comments#new', as: 'new_comment'
+  resources :comments
 
   devise_for :users
 

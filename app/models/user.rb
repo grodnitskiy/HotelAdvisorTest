@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :title, :body, :password_confirmation, :password, :email, :remember_me
-  has_many :messages
+  has_many :comments , :class_name => 'Comment'
 end
