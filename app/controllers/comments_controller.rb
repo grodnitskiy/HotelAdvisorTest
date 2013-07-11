@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = Comment.new
-    @comment.hotel = params[:hotel]
+    @comment.hotel = Hotel.find(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,9 +47,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment.hotel, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
-      else
+              else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
