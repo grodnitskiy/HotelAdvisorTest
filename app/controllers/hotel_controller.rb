@@ -1,11 +1,19 @@
 class HotelController < ApplicationController
-   def show
-     @hotel = Hotel.find(params[:id])
-   end
+  def show
+    @hotel = Hotel.find(params[:id])
+  end
 
-   def index
+  def show_new
 
-   end
+  end
+
+  def show_most_rated
+      @hotels = Hotel.
+  end
+
+  def index
+
+  end
 
   def create
     @hotel = Hotel.new(params[:hotel])
@@ -28,7 +36,7 @@ class HotelController < ApplicationController
 
   def update
     @hotel = Hotel.find(params[:id])
-    if @hotel.update_attributes(params[:painting])       #TODO: rewrite
+    if @hotel.update_attributes(params[:painting]) #TODO: rewrite
       flash[:notice] = "Successfully updated Hotel."
       redirect_to @hotel
     else

@@ -5,9 +5,9 @@ HotelAdvisor::Application.routes.draw do
 
   devise_for :users
 
- # get "home/index"
+  # get "home/index"
 
- # match '/hotel/:id', :to => 'hotel#new', :as => :hotel
+  # match '/hotel/:id', :to => 'hotel#new', :as => :hotel
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -22,9 +22,9 @@ HotelAdvisor::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
-     resources :hotel
-               #:only => [:new, :create]
-  #match '/hotel' => 'hotel#create', :via => :post
+  match '/hotel/show_most_rated' => 'hotel#show_most_rated'
+  resources :hotel
+  #:only => [:new, :create]
 
 
   # Sample resource route with options:
