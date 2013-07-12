@@ -18,6 +18,8 @@ class HotelController < ApplicationController
 
   def create
     @hotel = Hotel.new(params[:hotel])
+    @hotel.userRateCount = 0
+    @hotel.rating = 0
     if @hotel.save
       flash[:notice] = "Successfully created new Hotel."
       redirect_to @hotel

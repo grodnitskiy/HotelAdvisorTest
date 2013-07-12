@@ -43,13 +43,21 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
+    @hotel = Hotel.find(@comment.hotel_id)
 
-
+    if !@hotel.rating?
+      @hotel.rating= @comment.rate
+      @hotel.userRateCount =1
+    else
+      @hotel.rating = (((@hotel.userRateCount * @hotel.rating) + @comment.rate) / (@hotel.userRateCount + 1))
+      @hotel.userRateCount += 1
+    end
+    @hotel.save
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.hotel, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
-              else
+      else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

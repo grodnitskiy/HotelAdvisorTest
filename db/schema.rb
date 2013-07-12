@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712045755) do
+ActiveRecord::Schema.define(:version => 20130712122927) do
+
+  create_table "Hotels", :force => true do |t|
+    t.string   "title"
+    t.text     "room_desc"
+    t.float    "price_for_room"
+    t.boolean  "breakfast"
+    t.string   "address_country"
+    t.string   "address_state"
+    t.string   "address_city"
+    t.string   "address_street"
+    t.string   "photo_hotel"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "userRateCount"
+    t.float    "rate"
+    t.float    "rating"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -22,20 +39,12 @@ ActiveRecord::Schema.define(:version => 20130712045755) do
     t.integer  "rate"
   end
 
-  create_table "hotels", :force => true do |t|
-    t.string   "title"
-    t.text     "room_desc"
-    t.float    "price_for_room"
-    t.integer  "rating"
-    t.boolean  "breakfast"
-    t.string   "address_country"
-    t.string   "address_state"
-    t.string   "address_city"
-    t.string   "address_street"
-    t.string   "photo_hotel"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "userRateCount"
+  create_table "messages", :force => true do |t|
+    t.text     "content"
+    t.integer  "hotel_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

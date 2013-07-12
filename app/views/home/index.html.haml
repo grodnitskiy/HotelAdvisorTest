@@ -1,0 +1,35 @@
+-@hotel.each do |hotel|
+  %div{:class => "well"}
+    =image_tag(hotel.photo_hotel, width:'165', height:'165', align:'right') if hotel.photo_hotel?
+    %h3= hotel.title
+
+    %p
+      %b Rating:
+      -a = hotel.rating.to_i
+      -if !a.nil?
+        -a.times do |i|
+          =image_tag("star.png")
+
+    %p
+      %b Price for room:
+      =hotel.price_for_room
+      $
+
+    %p
+      %b Breakfast Included?:
+      =hotel.breakfast
+
+    %p
+      %b Address:
+      =hotel.address_country
+      ,
+      =hotel.address_state
+      ,
+      =hotel.address_city
+      ,
+      =hotel.address_street
+
+
+    %p
+      %b Room Description:
+      =hotel.room_desc

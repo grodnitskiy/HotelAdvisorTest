@@ -5,7 +5,10 @@
 
   %p
     %b Rating:
-    =@hotel.rating
+    -a = @hotel.rating.to_i
+    -if !a.nil?
+      -a.times do |i|
+        =image_tag("star.png")
 
   %p
     %b Price for room:
@@ -25,13 +28,13 @@
     =@hotel.address_city
     ,
     =@hotel.address_street
-    ,
+
 
   %p
     %b Room Description:
     =@hotel.room_desc
 
-=if @comments.any?
+-if @comments.any?
   %div{:class => "well"}
     %p
       %b Comments:
