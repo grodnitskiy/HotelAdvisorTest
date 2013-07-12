@@ -1,13 +1,12 @@
-= simple_form_for(@comment) do |f|
+= simple_form_for @comment, :validate => true do |f|
   = f.error_notification
 
   .form-inputs
+    = f.input :rate, as: :radio_buttons, collection: 1..5, :checked => 5, :validate => { :presence => true }
 
-    = f.input :text
+    = f.input :text, :validate => { :presence => true }
 
-
-
-    = f.input :hotel_id
+    = f.hidden_field(:hotel_id)
 
 
   .form-actions

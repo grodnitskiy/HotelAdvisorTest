@@ -3,7 +3,13 @@
     %b
       = comment.user.email
       at
-      =  comment.created_at
+      = comment.created_at
+      Rated:
+      -a = comment.rate
+      -if !a.nil?
+        -a.times do |i|
+          =image_tag("star.png")
+
     %p
     = comment.text
 
