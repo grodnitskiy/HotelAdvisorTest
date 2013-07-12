@@ -1,6 +1,6 @@
 
 %div{:class => "well"}
-  =image_tag(@hotel.photo_hotel, width:'265', height:'265', align:'right') if @hotel.photo_hotel?
+  =image_tag(@hotel.photo_hotel, width:'215', height:'215', align:'right', class:'img-polaroid') if @hotel.photo_hotel?
   %h1= @hotel.title
 
   %p

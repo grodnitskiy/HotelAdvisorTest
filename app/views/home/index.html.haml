@@ -1,6 +1,6 @@
 -@hotel.each do |hotel|
   %div{:class => "well"}
-    =image_tag(hotel.photo_hotel, width:'165', height:'165', align:'right') if hotel.photo_hotel?
+    =image_tag(hotel.photo_hotel, width:'165', height:'165', align:'right', class:'img-polaroid') if hotel.photo_hotel?
     %h3= hotel.title
 
     %p
