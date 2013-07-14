@@ -4,6 +4,9 @@ class HotelController < ApplicationController
     @comments = @hotel.comments
   end
 
+  def index
+    @hotel = Hotel.all
+  end
 
   before_filter :authenticate_user!
   def create

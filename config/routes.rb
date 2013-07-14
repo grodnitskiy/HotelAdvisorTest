@@ -22,6 +22,7 @@ HotelAdvisor::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
+  get '/hotel', to: 'hotel#index' , as: 'index_hotel'
   get '/hotel/show/:id', to: 'hotel#show' , as: 'hotel'
   resources :hotel
 
