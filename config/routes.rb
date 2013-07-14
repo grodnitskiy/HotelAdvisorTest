@@ -22,8 +22,9 @@ HotelAdvisor::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
-  match '/hotel/show_most_rated' => 'hotel#show_most_rated'
+  get '/hotel/show/:id', to: 'hotel#show' , as: 'hotel'
   resources :hotel
+
   #:only => [:new, :create]
 
 

@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!
-
   def index
-     @hotel= Hotel.all
-
+    @hotel= Hotel.order("rating DESC").take(5)
   end
+
 end

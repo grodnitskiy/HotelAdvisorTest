@@ -23,7 +23,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   # GET /comments/new.json
+  before_filter :authenticate_user!
+
   def new
+
     @comment = Comment.new
     @comment.hotel = Hotel.find(params[:id])
 
@@ -34,13 +37,17 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1/edit
+  before_filter :authenticate_user!
+
   def edit
     @comment = Comment.find(params[:id])
   end
 
   # POST /comments
   # POST /comments.json
+  before_filter :authenticate_user!
   def create
+
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @hotel = Hotel.find(@comment.hotel_id)
@@ -66,7 +73,9 @@ class CommentsController < ApplicationController
 
   # PUT /comments/1
   # PUT /comments/1.json
+  before_filter :authenticate_user!
   def update
+
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
@@ -82,7 +91,9 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
+  before_filter :authenticate_user!
   def destroy
+
     @comment = Comment.find(params[:id])
     @comment.destroy
 

@@ -4,4 +4,6 @@ class Comment < ActiveRecord::Base
   belongs_to :user, :class_name => 'User'
   validates :user_id, presence: true
   validates :hotel_id, presence: true
+  validates :text, :presence => true
+  validates :rate, :presence => true
 end

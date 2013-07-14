@@ -4,18 +4,8 @@ class HotelController < ApplicationController
     @comments = @hotel.comments
   end
 
-  def show_new
 
-  end
-
-  def show_most_rated
-    @hotels = Hotel
-  end
-
-  def index
-
-  end
-
+  before_filter :authenticate_user!
   def create
     @hotel = Hotel.new(params[:hotel])
     @hotel.userRateCount = 0
@@ -28,30 +18,10 @@ class HotelController < ApplicationController
     end
   end
 
+
+
   def new
     @hotel = Hotel.new
-  end
-
-
-  def edit
-    @hotel = Hotel.find(params[:id])
-  end
-
-  def update
-    @hotel = Hotel.find(params[:id])
-    if @hotel.update_attributes(params[:painting]) #TODO: rewrite
-      flash[:notice] = "Successfully updated Hotel."
-      redirect_to @hotel
-    else
-      render :action => 'edit'
-    end
-  end
-
-  def destroy
-    @hotel = Hotel.find(params[:id])
-    @hotel.destroy
-    flash[:notice] = "Successfully destroyed Hotel."
-    redirect_to @hotel
   end
 
 end
